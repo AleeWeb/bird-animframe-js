@@ -1,0 +1,80 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bird Animation Frame Request</title>
+
+<style>
+
+body {
+  background-image: url("paper-sky2.jpg");
+  background-size: cover;
+}
+
+#bird {
+  position: absolute;
+  top: 250px;
+}
+
+#directions {
+  padding-top: 30px;
+  padding-left: 10px;
+}
+
+.move {
+  padding: 7px;
+  width: 100px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.move:hover {
+  background-color: yellow;
+  border: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="directions">
+<button class="move" onmousedown="changeDir('right'); startAnimation()" onmouseup="stopAnimation()">Right</button>
+<button class="move" onmousedown="changeDir('left'); startAnimation()" onmouseup="stopAnimation()">Left</button>
+
+<button class="move" onmousedown="changeDir('up'); startAnimation()" onmouseup="stopAnimation()">Up</button>
+<button class="move" onmousedown="changeDir('down'); startAnimation()" onmouseup="stopAnimation()">Down</button>
+</div>
+
+<img id="bird" src="paper-bird.png" width="280" alt="birdy">
+
+<script>
+
+//Variable name is short for the word Element
+var el = document.getElementById("bird");
+var reqID;  //Short for Request ID
+var dir;
+
+function changeDir(d) {
+  dir = d;
+}
+
+function startAnimation() {
+  if (dir == "right") {
+      el.style.left = (el.offsetLeft += 1) + "px";
+  } else if (dir == "left"){
+      el.style.left = (el.offsetLeft -= 1) + "px";
+  } else if (dir == "up"){
+      el.style.top = (el.offsetTop -= 1) + "px";
+  } else if (dir == "down"){
+      el.style.top = (el.offsetTop += 1) + "px";
+  }
+  reqID = window.requestAnimationFrame(startAnimation); //The function calls itself for the callback.
+}
+
+function stopAnimation() {
+ window.cancelAnimationFrame(reqID);
+}
+</script>
+</body>
+</html>
