@@ -1,6 +1,6 @@
 # bird-animframe-js
 
-A simple JavaScript animation experiment using <strong>requestAnimationFrame();</strong> with creative graphics. Make the paper bird fly!
+A simple and basic JavaScript animation experiment using <strong>requestAnimationFrame();</strong> with creative graphics. Make the paper bird fly!
 
 Note: The JavaScript is in the <script> tags in the HTML file. 
 
